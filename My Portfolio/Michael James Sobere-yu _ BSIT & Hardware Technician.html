@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Michael James Sobere-yu | BSIT &amp; Hardware Technician</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDF1EA; --surface:#F8FAF6; --ink:#14231F; --muted:#4D5F59;
+  --pcb:#0F5C4D; --gold:#C9962B; --led:#D8402A; --line:#C5D0C7; --btn-ink:#fff;
+  --post-bg:#0C1B17; --post-ink:#B7F2D0;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1815; --surface:#15231F; --ink:#E6EFE9; --muted:#9BB0A7;
+    --pcb:#4DBF9F; --gold:#E3B343; --line:#2A3C36; --btn-ink:#07100D; --post-bg:#07100D;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1815; --surface:#15231F; --ink:#E6EFE9; --muted:#9BB0A7;
+  --pcb:#4DBF9F; --gold:#E3B343; --line:#2A3C36; --btn-ink:#07100D; --post-bg:#07100D;
+  color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth;height:auto}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:1.05rem;line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.25rem}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Consolas,monospace}
+
+header.top{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.1rem 0;flex-wrap:wrap}
+header.top .logo{font-weight:800;letter-spacing:-.01em}
+nav a{margin-left:1.2rem;text-decoration:none;color:var(--muted);font-size:.95rem}
+nav a:hover{color:var(--pcb)}
+
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:2.5rem;align-items:center;padding:2.5rem 0 4rem}
+.hero h1{font-size:clamp(2.4rem,6.5vw,4.6rem);line-height:1;letter-spacing:-.035em;font-weight:800;margin:0 0 1rem}
+.hero p.lead{font-size:1.2rem;color:var(--muted);max-width:34ch;margin:0 0 1.6rem}
+.btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.8rem 1.3rem;border-radius:6px;font-weight:600;text-decoration:none;border:2px solid var(--pcb)}
+.btn.primary{background:var(--pcb);color:var(--btn-ink)}
+.btn.ghost{color:var(--pcb)}
+
+.post{background:var(--post-bg);color:var(--post-ink);border-radius:10px;padding:1.1rem 1.2rem 1.4rem;font-size:.85rem;line-height:1.75;box-shadow:0 0 0 6px var(--line);min-height:300px}
+.post .bar{display:flex;gap:.4rem;margin-bottom:.8rem}
+.post .bar i{width:10px;height:10px;border-radius:50%;background:#3a4a44}
+.post .bar i:first-child{background:var(--led)}
+.post .ok{color:#6EE7A8}
+.post .nm{color:#F2C95C}
+.cursor{display:inline-block;width:.55em;height:1em;background:var(--post-ink);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(1.8rem,4vw,2.5rem);letter-spacing:-.025em;margin:0 0 1.5rem;line-height:1.1}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+.about p{margin:0 0 1rem;max-width:60ch}
+.facts{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.facts li{display:flex;justify-content:space-between;gap:1rem;padding:.8rem 1.1rem;border-bottom:1px solid var(--line)}
+.facts li:last-child{border-bottom:0}
+.facts span:first-child{color:var(--muted)}
+.facts span:last-child{font-weight:600;text-align:right}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+.skill{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--pcb);border-radius:6px;padding:1.1rem 1.2rem}
+.skill h3{margin:0 0 .3rem;font-size:1.15rem}
+.skill p{margin:0 0 .8rem;color:var(--muted);font-size:.95rem}
+.pins{display:flex;gap:4px}
+.pins i{width:14px;height:8px;border-radius:2px;background:var(--line)}
+.pins i.on{background:var(--gold)}
+
+.fix{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.7rem;list-style:none;margin:0;padding:0}
+.fix li{padding:.8rem 1rem;border:1px dashed var(--pcb);border-radius:6px;display:flex;gap:.7rem;align-items:center}
+.fix li::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--led);flex:none}
+.fix li:hover::before{background:#3DBB7E}
+
+.contact{display:grid;gap:.6rem;max-width:520px}
+.contact a{display:flex;justify-content:space-between;gap:1rem;padding:.9rem 1.1rem;border:1px solid var(--line);background:var(--surface);border-radius:6px;text-decoration:none}
+.contact a:hover{border-color:var(--pcb)}
+.contact span:first-child{color:var(--muted)}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+
+@media (max-width:760px){
+  .hero,.about{grid-template-columns:1fr}
+  nav a:first-child{margin-left:0}
+}
+@media (prefers-reduced-motion: reduce){.cursor{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="logo">M. J. Sobere-yu</div>
+    <nav aria-label="Main">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#repairs">Repairs</a><a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <h1>Michael James Sobere-yu</h1>
+        <p class="lead">BSIT student who loves hardware and fixes computers.</p>
+        <div class="btns">
+          <a class="btn primary" href="#contact">Get in touch</a>
+          <a class="btn ghost" href="#repairs">See what I fix</a>
+        </div>
+      </div>
+      <div class="post mono" aria-label="Computer startup screen showing Michael’s name and role">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div id="postLines"></div>
+      </div>
+    </div>
+
+    <section id="about">
+      <h2>About me</h2>
+      <div class="about">
+        <div>
+          <p>Hi, I’m Michael. I’m taking a Bachelor of Science in Information Technology, and my favorite part of it is hardware. I like opening a computer, finding what’s wrong, and getting it running again.</p>
+          <p>I enjoy the hands-on side of IT: the parts, the cables, the tools, and the small details that decide whether a machine works or not. I want to keep learning and turn this passion into a career.</p>
+        </div>
+        <ul class="facts">
+          <li><span>Name</span><span>Michael James Sobere-yu</span></li>
+          <li><span>Course</span><span>BSIT</span></li>
+          <li><span>Interest</span><span>Computer hardware</span></li>
+          <li><span>Specialty</span><span>Computer repair</span></li>
+          <li><span>Location</span><span>Philippines</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill"><h3>Computer repair</h3><p>Finding faults and fixing desktops and laptops.</p><div class="pins" role="img" aria-label="Level 5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+        <div class="skill"><h3>Hardware knowledge</h3><p>CPU, RAM, storage, motherboard, power supply, and cooling.</p><div class="pins" role="img" aria-label="Level 4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+        <div class="skill"><h3>Troubleshooting</h3><p>Working from the symptom to the cause, one step at a time.</p><div class="pins" role="img" aria-label="Level 4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+        <div class="skill"><h3>PC assembly</h3><p>Putting parts together into a working build.</p><div class="pins" role="img" aria-label="Level 4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+        <div class="skill"><h3>Software setup</h3><p>Installing Windows, drivers, and everyday programs.</p><div class="pins" role="img" aria-label="Level 4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div>
+        <div class="skill"><h3>IT fundamentals</h3><p>Networking basics and general IT knowledge from my BSIT studies.</p><div class="pins" role="img" aria-label="Level 3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div></div>
+      </div>
+    </section>
+
+    <section id="repairs">
+      <h2>What I can fix</h2>
+      <ul class="fix">
+        <li>Computer won’t turn on</li>
+        <li>Slow computer</li>
+        <li>No display or black screen</li>
+        <li>Overheating and loud fans</li>
+        <li>Virus and malware cleanup</li>
+        <li>Windows install and reinstall</li>
+        <li>RAM and SSD upgrades</li>
+        <li>Laptop keyboard and screen issues</li>
+        <li>Internet and Wi‑Fi problems</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact me</h2>
+      <p style="max-width:50ch;color:var(--muted);margin-top:0">Have a computer that needs help? Send me a message and describe the problem.</p>
+      <div class="contact">
+        <a href="mailto:msobereyu@gmail.com"><span>Email</span><span>msobereyu@gmail.com</span></a>
+        <a href="https://www.facebook.com/share/1JmXctueK1/" rel="noopener" target="_blank"><span>Facebook</span><span>Michael James Sobere-yu</span></a>
+        <a href="tel:+639940654124"><span>Phone</span><span>0994 065 4124</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 Michael James Sobere-yu. All rights reserved.</footer>
+</div>
+
+<script>
+(function(){
+  var lines=[
+    ['BIOS v1.0  Portfolio Edition',''],
+    ['Checking memory .......','<span class="ok">OK</span>'],
+    ['Checking processor ....','<span class="ok">OK</span>'],
+    ['Checking storage ......','<span class="ok">OK</span>'],
+    ['Loading user ..........','<span class="ok">OK</span>'],
+    ['',''],
+    ['<span class="nm">Michael James Sobere-yu</span>',''],
+    ['BSIT · Hardware · Computer repair',''],
+    ['Status: ready to fix <span class="cursor"></span>','']
+  ];
+  var box=document.getElementById('postLines');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function row(l){return '<div>'+(l[0]||'&nbsp;')+(l[1]?' '+l[1]:'')+'</div>';}
+  if(reduce){box.innerHTML=lines.map(row).join('');return;}
+  var i=0;
+  (function next(){
+    if(i>=lines.length)return;
+    box.insertAdjacentHTML('beforeend',row(lines[i]));
+    i++;
+    setTimeout(next,i<6?420:650);
+  })();
+})();
+</script>
+</body>
+</html>
